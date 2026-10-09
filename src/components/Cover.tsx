@@ -213,6 +213,21 @@ const motifs: Record<Motif, (c: Colors) => ReactNode> = {
   ),
 }
 
+// Rough width of a word, in ems of the display face. A title is set smaller when a
+// single word would otherwise run past the edge of the cover.
+function wordWidth(word: string) {
+  let width = 0
+  for (const ch of word) {
+    if ("iljtf.,'-:".includes(ch)) width += 0.3
+    else if ('mwMW'.includes(ch)) width += 0.85
+    else if (ch >= 'A' && ch <= 'Z') width += 0.7
+    else width += 0.52
+  }
+  return width
+}
+
+const MAX_WORD_WIDTH = 5.3
+
 interface Props {
   book: Book
   className?: string
@@ -222,7 +237,9 @@ interface Props {
 
 export function Cover({ book, className = '', decorative = false }: Props) {
   const { bg, ink, accent, motif } = book.cover
-  const length = book.title.length > 30 ? 'xl' : book.title.length > 19 ? 'lg' : 'md'
+  const widestWord = Math.max(...book.title.split(/\s+/).map(wordWidth))
+  const length =
+    book.title.length > 30 ? 'xl' : book.title.length > 19 || widestWord > MAX_WORD_WIDTH ? 'lg' : 'md'
   return (
     <div
       className={`cover ${className}`}

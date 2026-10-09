@@ -791,6 +791,7 @@ main {
 
 .card {
   position: relative;
+  container-type: inline-size;
 }
 
 .card__link {
@@ -839,7 +840,9 @@ main {
 
 .save-btn {
   position: absolute;
-  top: 8px;
+  /* The cover is one and a half times as tall as the card is wide. This puts the
+     button in the cover's bottom corner, clear of the title. */
+  top: calc(150cqw - 42px);
   right: 8px;
   z-index: 3;
   display: grid;
@@ -1937,6 +1940,24 @@ mark.is-speaking {
 
   .filters {
     flex-direction: column;
+  }
+
+  /* With many categories, one scrolling row reads better on a phone than a wall of chips. */
+  .filters .chips {
+    flex-wrap: nowrap;
+    align-self: stretch;
+    margin-inline: calc(-1 * clamp(16px, 4vw, 40px));
+    padding-inline: clamp(16px, 4vw, 40px);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .filters .chips::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filters .chip {
+    flex: none;
   }
 }
 

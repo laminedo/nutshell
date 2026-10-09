@@ -12,6 +12,15 @@ export type CategoryId =
   | 'spirituality'
   | 'business'
   | 'investing'
+  | 'history'
+  | 'psychology'
+  | 'politics'
+  | 'biography'
+  | 'fiction'
+  | 'health'
+  | 'education'
+  | 'arts'
+  | 'adventure'
 
 export type Motif =
   | 'columns'

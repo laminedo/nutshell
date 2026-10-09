@@ -42,7 +42,7 @@ Covers are generated from `cover: { bg, ink, accent, motif }`; the available mot
 
 ## Content
 
-The 67 included summaries are original writing about public-domain works (all first published in 1930 or earlier). Summaries of books still in copyright may need the rights holder's permission before you publish them.
+The 167 included summaries are original writing about public-domain works (all first published in 1930 or earlier). Summaries of books still in copyright may need the rights holder's permission before you publish them.
 
 ## Stack
 

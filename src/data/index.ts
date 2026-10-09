@@ -1,9 +1,19 @@
+import { adventure } from './books/adventure'
+import { arts } from './books/arts'
 import { attraction } from './books/attraction'
+import { biography } from './books/biography'
 import { business } from './books/business'
+import { education } from './books/education'
+import { fiction } from './books/fiction'
 import { growth } from './books/growth'
+import { health } from './books/health'
+import { history } from './books/history'
 import { investing } from './books/investing'
 import { love } from './books/love'
 import { philosophy } from './books/philosophy'
+import { politics } from './books/politics'
+import { psychology } from './books/psychology'
+import { science } from './books/science'
 import { selfHelp } from './books/selfHelp'
 import { spirituality } from './books/spirituality'
 import { strategyMoney } from './books/strategyMoney'
@@ -26,6 +36,16 @@ const recommended = [
   'acres-of-diamonds',
   'walden',
   'my-life-and-work',
+  'the-great-gatsby',
+  'south',
+  'narrative-of-the-life-of-frederick-douglass',
+  'the-republic',
+  'memory-ebbinghaus',
+  'relativity',
+  'the-histories',
+  'letters-to-a-young-poet',
+  'the-montessori-method',
+  'notes-on-nursing',
   'on-the-shortness-of-life',
   'how-to-live-on-24-hours-a-day',
   'a-room-of-ones-own',
@@ -55,6 +75,16 @@ export const books: Book[] = [
   ...spirituality,
   ...business,
   ...investing,
+  ...history,
+  ...psychology,
+  ...politics,
+  ...biography,
+  ...fiction,
+  ...science,
+  ...health,
+  ...education,
+  ...arts,
+  ...adventure,
 ].sort(
   (a, b) => rank(a.id) - rank(b.id),
 )
@@ -75,6 +105,15 @@ export const categories: Category[] = [
   { id: 'spirituality', label: 'Spirituality', color: '#c9762b' },
   { id: 'business', label: 'Business', color: '#1d4e89' },
   { id: 'investing', label: 'Investing', color: '#3ebd93' },
+  { id: 'history', label: 'History', color: '#8d6e3f' },
+  { id: 'politics', label: 'Politics & Government', color: '#34495e' },
+  { id: 'biography', label: 'Biography & Memoir', color: '#a0522d' },
+  { id: 'psychology', label: 'Psychology', color: '#0e7c86' },
+  { id: 'health', label: 'Health & Wellness', color: '#4caf7a' },
+  { id: 'education', label: 'Education & Learning', color: '#f08a24' },
+  { id: 'fiction', label: 'Classic Fiction', color: '#7d3c98' },
+  { id: 'arts', label: 'Creativity & the Arts', color: '#e84a8a' },
+  { id: 'adventure', label: 'Adventure & Exploration', color: '#1f6fb2' },
 ]
 
 export const collections: Collection[] = [
@@ -143,6 +182,54 @@ export const collections: Collection[] = [
     blurb: 'How the first modern businesses were made and marketed.',
     bookIds: ['my-life-and-work', 'scientific-advertising', 'obvious-adams', 'the-art-of-money-getting'],
   },
+  {
+    id: 'how-to-learn-anything',
+    title: 'How to Learn Anything',
+    blurb: 'What a century of research and teaching says about learning well.',
+    bookIds: ['memory-ebbinghaus', 'how-we-think', 'talks-to-teachers-on-psychology', 'the-aims-of-education', 'habit'],
+  },
+  {
+    id: 'voices-of-freedom',
+    title: 'Voices of Freedom',
+    blurb: 'Firsthand accounts of slavery, resistance and self-liberation.',
+    bookIds: [
+      'narrative-of-the-life-of-frederick-douglass',
+      'twelve-years-a-slave',
+      'up-from-slavery',
+      'civil-disobedience',
+      'the-story-of-my-experiments-with-truth',
+    ],
+  },
+  {
+    id: 'to-the-ends-of-the-earth',
+    title: 'To the Ends of the Earth',
+    blurb: 'Ice, oceans and the people who would not turn back.',
+    bookIds: ['south', 'the-worst-journey-in-the-world', 'the-south-pole', 'sailing-alone-around-the-world'],
+  },
+  {
+    id: 'how-science-began',
+    title: 'How Science Began',
+    blurb: 'The books that taught us to trust evidence over authority.',
+    bookIds: [
+      'novum-organum',
+      'on-the-revolutions-of-the-heavenly-spheres',
+      'dialogue-concerning-the-two-chief-world-systems',
+      'principia',
+      'on-the-origin-of-species',
+    ],
+  },
+  {
+    id: 'the-creative-life',
+    title: 'The Creative Life',
+    blurb: 'Advice from artists and writers on making work that matters.',
+    bookIds: ['letters-to-a-young-poet', 'the-art-spirit', 'the-elements-of-style', 'a-room-of-ones-own', 'poetics'],
+  },
+  {
+    id: 'who-should-rule',
+    title: 'Who Should Rule?',
+    blurb: 'Twenty-four centuries of argument about power and consent.',
+    bookIds: ['the-republic', 'leviathan', 'second-treatise-of-government', 'the-federalist-papers', 'on-liberty'],
+  },
 ]
 
 export const shelves: Shelf[] = [
@@ -175,6 +262,21 @@ export const shelves: Shelf[] = [
     title: 'Build and invest',
     blurb: 'Lessons from founders, sellers and speculators.',
     categories: ['business', 'investing'],
+  },
+  {
+    title: 'The human story',
+    blurb: 'History, politics and remarkable lives.',
+    categories: ['history', 'politics', 'biography'],
+  },
+  {
+    title: 'Mind and body',
+    blurb: 'How we think, learn and stay well.',
+    categories: ['psychology', 'education', 'health'],
+  },
+  {
+    title: 'Stories and imagination',
+    blurb: 'Great novels, the arts and true adventures.',
+    categories: ['fiction', 'arts', 'adventure'],
   },
 ]
 

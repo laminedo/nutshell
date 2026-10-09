@@ -52,6 +52,16 @@ export default function Explore() {
 
   useEffect(() => () => window.clearTimeout(timer.current), [])
 
+  // On phones the categories are one scrolling row, so bring the active one into view.
+  const chipsRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const row = chipsRef.current
+    const active = row?.querySelector<HTMLElement>('[aria-pressed="true"]')
+    if (!row || !active) return
+    const offset = active.getBoundingClientRect().left - row.getBoundingClientRect().left
+    row.scrollTo({ left: row.scrollLeft + offset - (row.clientWidth - active.offsetWidth) / 2 })
+  }, [category])
+
   const results = useMemo(() => {
     let list = q.trim() ? searchBooks(q) : books
     if (category) list = list.filter((b) => b.category === category)
@@ -81,7 +91,7 @@ export default function Explore() {
       </div>
 
       <div className="filters">
-        <div className="chips" role="group" aria-label="Filter by category">
+        <div className="chips" role="group" aria-label="Filter by category" ref={chipsRef}>
           <button type="button" className="chip" aria-pressed={!category} onClick={() => set('category', null)}>
             All
           </button>
